@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tileset version="1.10" tiledversion="1.10.1" name="under_platform_center" tilewidth="51" tileheight="96" tilecount="1" columns="1">
+ <image source="environment/platforms/Under_Platform_Center.png" width="51" height="96"/>
+</tileset>

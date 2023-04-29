@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/moonknight-platfomer-game.iml" filepath="$PROJECT_DIR$/moonknight-platfomer-game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/desktop/moonknight-platfomer-game.desktop.main.iml" filepath="$PROJECT_DIR$/.idea/modules/desktop/moonknight-platfomer-game.desktop.main.iml" />
     </modules>
   </component>
 </project>

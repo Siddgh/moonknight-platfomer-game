@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="left-up" width="128" height="36" tilewidth="30" tileheight="30" infinite="0" nextlayerid="6" nextobjectid="11">
+ <tileset firstgid="1" source="platform_left.tsx"/>
+ <tileset firstgid="2" source="under_platform_center.tsx"/>
+ <tileset firstgid="3" source="filler_left.tsx"/>
+ <tileset firstgid="4" source="under_platform_left.tsx"/>
+ <tileset firstgid="5" source="background1.tsx"/>
+ <tileset firstgid="6" source="tree.tsx"/>
+ <tileset firstgid="7" source="grave1.tsx"/>
+ <tileset firstgid="8" source="grave2.tsx"/>
+ <tileset firstgid="9" source="grave3.tsx"/>
+ <layer id="2" name="Backgrounds" width="128" height="36">
+  <data encoding="base64" compression="zlib">
+   eJztyiESAAAEAEHF/78saoZst95FAAAAAAAAAAAAAABAy0PbvtMHAAAAAADwVQHDggAa
+  </data>
+ </layer>
+ <layer id="3" name="Trees" width="128" height="36">
+  <data encoding="base64" compression="zlib">
+   eJzt1akNADAMBEEj91+ycWCIH2mmgkN7EQAAAAAAAAAAAAC75fQAAB4/XdZwAOjnfwEAAADuKJ3eABk=
+  </data>
+ </layer>
+ <layer id="1" name="Platforms" width="128" height="36">
+  <data encoding="base64" compression="zlib">
+   eJzt1tEOgiAYgFHU3v+ZWxdtSIKWgDbO2Virsdz8/KkQAAAAAAAAAAAAAODepmgxBs3HM4Xt7nO0GMOcWdSTm7er5Frr398j5Gew13rTv7/0Xu+9b3HdtLv+v6lxzh/pf/Q3u7RP/3todX7nGn77naylM372/1zN3jWeI/3Llo11xpHGpX2tnpvR5eb8qv6lvS3W6NKuS/Tao3/vdvqvXdk/93mrPub/06trfD/+af6d/+c9AanoAsw=
+  </data>
+ </layer>
+ <layer id="4" name="Graves" width="128" height="36">
+  <data encoding="base64" compression="zlib">
+   eJzt1LEKACAIBUC36v9/uKUhImg08A5cng5vMgIAAAAAAAAAAADgfy27AClGdgEobP+7fc2Z3e7aY39mAAAAAAAAlU0V7QBr
+  </data>
+ </layer>
+ <objectgroup id="5" name="Ground">
+  <object id="1" x="-3.55271e-15" y="959.642" width="165.805" height="119.422"/>
+  <object id="3" x="180.733" y="899.931" width="164.205" height="179.666"/>
+  <object id="5" x="390.788" y="839.953" width="134.883" height="30.3884"/>
+  <object id="6" x="570.72" y="749.854" width="134.883" height="30.3884"/>
+  <object id="7" x="780.228" y="719.731" width="1161.51" height="359.241"/>
+  <object id="8" x="1741.24" y="654.646" width="199.313" height="30.3884"/>
+  <object id="9" x="1650.11" y="685.99" width="290.444" height="33.8711"/>
+  <object id="10" x="1830.63" y="630.267" width="110.504" height="23.423"/>
+ </objectgroup>
+</map>
