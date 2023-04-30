@@ -7,12 +7,13 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.sid.constants.FontConstants;
 import com.sid.constants.GameConstants;
 
-public class GameHUD {
+public class GameHUD implements Disposable {
     public Stage stage;
     private Viewport viewport;
 
@@ -48,4 +49,8 @@ public class GameHUD {
         stage.addActor(table);
     }
 
+    @Override
+    public void dispose() {
+        stage.dispose();
+    }
 }

@@ -1,10 +1,12 @@
 package com.sid.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -19,8 +21,12 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.sid.MainGameClass;
+import com.sid.characters.Player;
 import com.sid.constants.GameConstants;
+import com.sid.levelcreator.ElementDetection;
 import com.sid.scene.GameHUD;
+
+import java.util.Comparator;
 
 public class StartScreen implements Screen {
 
@@ -37,47 +43,64 @@ public class StartScreen implements Screen {
     private World world;
     private Box2DDebugRenderer box2DDebugRenderer;
 
+    private Player player;
+
+    private TextureAtlas atlas;
+
     public StartScreen(MainGameClass game) {
+
+        atlas = new TextureAtlas("characters/MainPlayer.atlas");
+
         this.game = game;
         gameCamera = new OrthographicCamera();
-        gameViewport = new FitViewport(GameConstants.GAME_WIDTH, GameConstants.GAME_HEIGHT, gameCamera);
+        gameViewport = new FitViewport(GameConstants.GAME_WIDTH / GameConstants.PIXELS_PER_METER, GameConstants.GAME_HEIGHT / GameConstants.PIXELS_PER_METER, gameCamera);
         gameHUD = new GameHUD(game.batch);
 
         mapLoader = new TmxMapLoader();
         levelMap = mapLoader.load("level1/level1.tmx");
-        orthogonalTiledMapRenderer = new OrthogonalTiledMapRenderer(levelMap);
+        orthogonalTiledMapRenderer = new OrthogonalTiledMapRenderer(levelMap, 1 / GameConstants.PIXELS_PER_METER);
         gameCamera.position.set(gameViewport.getWorldWidth() / 2, gameViewport.getWorldHeight() / 2, 0);
 
-        world = new World(new Vector2(0, 0), true);
+        world = new World(new Vector2(0, -10 / GameConstants.PIXELS_PER_METER), true);
         box2DDebugRenderer = new Box2DDebugRenderer();
 
-        BodyDef bodyDef = new BodyDef();
-        PolygonShape shape = new PolygonShape();
-        FixtureDef fixtureDef = new FixtureDef();
-        Body body;
+        new ElementDetection(world, levelMap);
 
-        for (MapObject object : levelMap.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
-            Rectangle rectangle = ((RectangleMapObject) object).getRectangle();
-            bodyDef.type = BodyDef.BodyType.StaticBody;
-            bodyDef.position.set(rectangle.getX() + rectangle.getWidth() / 2, rectangle.getY() + rectangle.getHeight() / 2);
-            body = world.createBody(bodyDef);
-            shape.setAsBox(rectangle.getWidth() / 2, rectangle.getHeight() / 2);
-            fixtureDef.shape = shape;
-            body.createFixture(fixtureDef);
-        }
+        player = new Player(world, this);
+
+    }
 
 
+    public TextureAtlas getAtlas() {
+        return atlas;
     }
 
     public void update(float deltaTime) {
         handleKeyboardEvents(deltaTime);
+
+        world.step(1 / 60f, 6, 2);
+
+        player.update(deltaTime);
+
+        gameCamera.position.x = player.body.getPosition().x;
+
         gameCamera.update();
         orthogonalTiledMapRenderer.setView(gameCamera);
     }
 
     private void handleKeyboardEvents(float deltaTime) {
-        if (Gdx.input.isTouched())
-            gameCamera.position.x += 100 * deltaTime;
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W) || Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
+            player.body.applyLinearImpulse(new Vector2(0, 0.4f), player.body.getWorldCenter(), true);
+        }
+
+        if ((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyJustPressed(Input.Keys.W)) && (player.body.getLinearVelocity().x <= 1)) {
+            player.body.applyLinearImpulse(new Vector2(0.1f, 0), player.body.getWorldCenter(), true);
+        }
+
+        if ((Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyJustPressed(Input.Keys.A)) && (player.body.getLinearVelocity().x >= -1)) {
+            player.body.applyLinearImpulse(new Vector2(-0.1f, 0), player.body.getWorldCenter(), true);
+        }
+
     }
 
     @Override
@@ -95,6 +118,12 @@ public class StartScreen implements Screen {
         orthogonalTiledMapRenderer.render();
 
         box2DDebugRenderer.render(world, gameCamera.combined);
+
+        game.batch.setProjectionMatrix(gameCamera.combined);
+
+        game.batch.begin();
+        player.draw(game.batch);
+        game.batch.end();
 
 
         game.batch.setProjectionMatrix(gameHUD.stage.getCamera().combined);
@@ -124,6 +153,10 @@ public class StartScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        world.dispose();
+        orthogonalTiledMapRenderer.dispose();
+        levelMap.dispose();
+        box2DDebugRenderer.dispose();
+        gameHUD.dispose();
     }
 }
