@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="left-up" width="128" height="36" tilewidth="30" tileheight="30" infinite="0" nextlayerid="6" nextobjectid="11">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="left-up" width="128" height="36" tilewidth="30" tileheight="30" infinite="0" nextlayerid="9" nextobjectid="17">
  <tileset firstgid="1" source="platform_left.tsx"/>
  <tileset firstgid="2" source="under_platform_center.tsx"/>
  <tileset firstgid="3" source="filler_left.tsx"/>
@@ -9,6 +9,7 @@
  <tileset firstgid="7" source="grave1.tsx"/>
  <tileset firstgid="8" source="grave2.tsx"/>
  <tileset firstgid="9" source="grave3.tsx"/>
+ <tileset firstgid="10" source="skull_enemy.tsx"/>
  <layer id="2" name="Backgrounds" width="128" height="36">
   <data encoding="base64" compression="zlib">
    eJztyiESAAAEAEHF/78saoZst95FAAAAAAAAAAAAAABAy0PbvtMHAAAAAADwVQHDggAa
@@ -38,5 +39,10 @@
   <object id="8" x="1741.24" y="654.646" width="199.313" height="30.3884"/>
   <object id="9" x="1650.11" y="685.99" width="290.444" height="33.8711"/>
   <object id="10" x="1830.63" y="630.267" width="110.504" height="23.423"/>
+ </objectgroup>
+ <objectgroup id="8" name="skulls">
+  <object id="14" x="644.132" y="695.522" width="50.0626" height="46.5037" rotation="359.546"/>
+  <object id="15" x="1188.36" y="649.938" width="50.0626" height="46.5037" rotation="359.546"/>
+  <object id="16" x="1367.74" y="646.83" width="50.0626" height="46.5037" rotation="359.546"/>
  </objectgroup>
 </map>

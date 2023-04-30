@@ -21,7 +21,10 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.sid.MainGameClass;
+import com.sid.characters.Enemy;
 import com.sid.characters.Player;
+import com.sid.characters.SkullEnemy;
+import com.sid.constants.CharacterBits;
 import com.sid.constants.GameConstants;
 import com.sid.levelcreator.ElementDetection;
 import com.sid.levelcreator.WorldContactListener;
@@ -47,7 +50,7 @@ public class StartScreen implements Screen {
     private Player player;
 
     private TextureAtlas atlas;
-
+    ElementDetection elementDetection;
     public StartScreen(MainGameClass game) {
 
         atlas = new TextureAtlas("characters/MainPlayer.atlas");
@@ -65,9 +68,11 @@ public class StartScreen implements Screen {
         world = new World(new Vector2(0, -120 / GameConstants.PIXELS_PER_METER), true);
         box2DDebugRenderer = new Box2DDebugRenderer();
 
-        new ElementDetection(world, levelMap);
+        elementDetection = new ElementDetection(this);
+        elementDetection.setCategoryFilter(CharacterBits.GROUND_BIT);
 
-        player = new Player(world, this);
+        player = new Player(this);
+
 
         world.setContactListener(new WorldContactListener());
     }
@@ -84,6 +89,11 @@ public class StartScreen implements Screen {
 
         player.update(deltaTime);
 
+        for (Enemy enemy: elementDetection.getSkullEnemyArray()){
+            enemy.update(deltaTime);
+        }
+
+
         gameCamera.position.x = player.body.getPosition().x;
 
         gameCamera.update();
@@ -92,7 +102,7 @@ public class StartScreen implements Screen {
 
     private void handleKeyboardEvents(float deltaTime) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W) || Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
-            player.body.applyLinearImpulse(new Vector2(0,  4.0f), player.body.getWorldCenter(), true);
+            player.body.applyLinearImpulse(new Vector2(0, 4.0f), player.body.getWorldCenter(), true);
         }
 
         if ((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyJustPressed(Input.Keys.W)) && (player.body.getLinearVelocity().x <= 1)) {
@@ -125,6 +135,9 @@ public class StartScreen implements Screen {
 
         game.batch.begin();
         player.draw(game.batch);
+        for (Enemy enemy: elementDetection.getSkullEnemyArray()){
+            enemy.draw(game.batch);
+        }
         game.batch.end();
 
 
@@ -151,6 +164,14 @@ public class StartScreen implements Screen {
     @Override
     public void hide() {
 
+    }
+
+    public TiledMap getLevelMap() {
+        return levelMap;
+    }
+
+    public World getWorld() {
+        return world;
     }
 
     @Override

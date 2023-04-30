@@ -1,13 +1,32 @@
 package com.sid.levelcreator;
 
-import com.badlogic.gdx.physics.box2d.Contact;
-import com.badlogic.gdx.physics.box2d.ContactImpulse;
-import com.badlogic.gdx.physics.box2d.ContactListener;
-import com.badlogic.gdx.physics.box2d.Manifold;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.physics.box2d.*;
+import com.sid.characters.Enemy;
+import com.sid.constants.CharacterBits;
+import jdk.jpackage.internal.Log;
 
 public class WorldContactListener implements ContactListener {
     @Override
     public void beginContact(Contact contact) {
+        Fixture fixtureA = contact.getFixtureA();
+        Fixture fixtureB = contact.getFixtureB();
+
+        int categoryBits = fixtureA.getFilterData().categoryBits | fixtureB.getFilterData().categoryBits;
+
+        System.out.println(categoryBits);
+        switch (categoryBits) {
+            case CharacterBits.ENEMY_BIT | CharacterBits.GROUND_BIT:
+                if (fixtureA.getFilterData().categoryBits == CharacterBits.ENEMY_BIT) {
+                    ((Enemy) fixtureA.getUserData()).reverseSpeed(true, false);
+                } else {
+                    ((Enemy) fixtureB.getUserData()).reverseSpeed(true, false);
+                }
+                break;
+            case CharacterBits.PLAYER_BIT | CharacterBits.ENEMY_BIT:
+                System.out.println("DIEEEE!!");
+                break;
+        }
 
     }
 

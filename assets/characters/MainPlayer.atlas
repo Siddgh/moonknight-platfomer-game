@@ -368,3 +368,59 @@ run
   orig: 128, 128
   offset: 0, 0
   index: 5
+skull
+  rotate: false
+  xy: 3328, 144
+  size: 96, 112
+  orig: 96, 112
+  offset: 0, 0
+  index: 4
+skull
+  rotate: false
+  xy: 3328, 32
+  size: 96, 112
+  orig: 96, 112
+  offset: 0, 0
+  index: 1
+skull
+  rotate: false
+  xy: 3424, 144
+  size: 96, 112
+  orig: 96, 112
+  offset: 0, 0
+  index: 6
+skull
+  rotate: false
+  xy: 3424, 32
+  size: 96, 112
+  orig: 96, 112
+  offset: 0, 0
+  index: 3
+skull
+  rotate: false
+  xy: 3520, 144
+  size: 96, 112
+  orig: 96, 112
+  offset: 0, 0
+  index: 8
+skull
+  rotate: false
+  xy: 3520, 32
+  size: 96, 112
+  orig: 96, 112
+  offset: 0, 0
+  index: 5
+skull
+  rotate: false
+  xy: 3616, 144
+  size: 96, 112
+  orig: 96, 112
+  offset: 0, 0
+  index: 2
+skull
+  rotate: false
+  xy: 3616, 32
+  size: 96, 112
+  orig: 96, 112
+  offset: 0, 0
+  index: 7
