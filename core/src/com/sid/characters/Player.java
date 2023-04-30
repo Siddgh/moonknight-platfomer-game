@@ -3,6 +3,7 @@ package com.sid.characters;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.sid.constants.GameConstants;
@@ -35,12 +36,12 @@ public class Player extends Sprite {
 
 
         createPlayer();
-        setBounds(0, 0, 98 / GameConstants.PIXELS_PER_METER, 98 / GameConstants.PIXELS_PER_METER);
+        setBounds(0, 0, 102 / GameConstants.PIXELS_PER_METER, 102 / GameConstants.PIXELS_PER_METER);
         setRegion(playerStand.getKeyFrame(stateTimer));
     }
 
     public void update(float deltaTime) {
-        setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y - getHeight() / 2);
+        setPosition(body.getPosition().x - getWidth() / 4, body.getPosition().y - getHeight() / 4);
         setRegion(getFrame(deltaTime));
     }
 
@@ -96,11 +97,18 @@ public class Player extends Sprite {
 
         FixtureDef fixtureDef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(30 / GameConstants.PIXELS_PER_METER);
+        shape.setRadius(10 / GameConstants.PIXELS_PER_METER);
 
         fixtureDef.shape = shape;
 
         body.createFixture(fixtureDef);
+
+
+        EdgeShape leftEdge = new EdgeShape();
+        leftEdge.set(new Vector2(-2 / GameConstants.PIXELS_PER_METER, 30 / GameConstants.PIXELS_PER_METER), new Vector2(-2 / GameConstants.PIXELS_PER_METER, 30 / GameConstants.PIXELS_PER_METER));
+        fixtureDef.isSensor = true;
+
+        body.createFixture(fixtureDef).setUserData("Left");
 
     }
 }

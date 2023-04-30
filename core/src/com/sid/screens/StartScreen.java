@@ -24,6 +24,7 @@ import com.sid.MainGameClass;
 import com.sid.characters.Player;
 import com.sid.constants.GameConstants;
 import com.sid.levelcreator.ElementDetection;
+import com.sid.levelcreator.WorldContactListener;
 import com.sid.scene.GameHUD;
 
 import java.util.Comparator;
@@ -61,13 +62,14 @@ public class StartScreen implements Screen {
         orthogonalTiledMapRenderer = new OrthogonalTiledMapRenderer(levelMap, 1 / GameConstants.PIXELS_PER_METER);
         gameCamera.position.set(gameViewport.getWorldWidth() / 2, gameViewport.getWorldHeight() / 2, 0);
 
-        world = new World(new Vector2(0, -10 / GameConstants.PIXELS_PER_METER), true);
+        world = new World(new Vector2(0, -120 / GameConstants.PIXELS_PER_METER), true);
         box2DDebugRenderer = new Box2DDebugRenderer();
 
         new ElementDetection(world, levelMap);
 
         player = new Player(world, this);
 
+        world.setContactListener(new WorldContactListener());
     }
 
 
@@ -90,15 +92,15 @@ public class StartScreen implements Screen {
 
     private void handleKeyboardEvents(float deltaTime) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W) || Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
-            player.body.applyLinearImpulse(new Vector2(0, 0.4f), player.body.getWorldCenter(), true);
+            player.body.applyLinearImpulse(new Vector2(0,  4.0f), player.body.getWorldCenter(), true);
         }
 
         if ((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyJustPressed(Input.Keys.W)) && (player.body.getLinearVelocity().x <= 1)) {
-            player.body.applyLinearImpulse(new Vector2(0.1f, 0), player.body.getWorldCenter(), true);
+            player.body.applyLinearImpulse(new Vector2(1.0f, 0), player.body.getWorldCenter(), true);
         }
 
         if ((Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyJustPressed(Input.Keys.A)) && (player.body.getLinearVelocity().x >= -1)) {
-            player.body.applyLinearImpulse(new Vector2(-0.1f, 0), player.body.getWorldCenter(), true);
+            player.body.applyLinearImpulse(new Vector2(-1.0f, 0), player.body.getWorldCenter(), true);
         }
 
     }
