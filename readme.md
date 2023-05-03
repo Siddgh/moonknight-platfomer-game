@@ -32,7 +32,7 @@ Note: If you're using macOS, you can use the command "java -XstartOnFirstThread 
 ## Getting Started
 
 1. Once you've successfully launched the game, you'll be greeted with this Welcome Screen.
-![["assets/readme/intro.png"]]
+![Welcome Screen](assets/readme/intro.png)
 
 2. Enter your username and click play to start the game
 
