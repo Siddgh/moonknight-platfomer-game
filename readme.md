@@ -12,14 +12,14 @@ Speed Runner was developed using the Java programming languge and the LibGDX gam
 1. Download the game from the provided link :- [Speed Runner](https://github.com/Siddgh/speedrunner/blob/main/speedrunner.jar)
 2. Ensure Java is installed on your computer. If not, download and install java from the official Java website
    You can check if Java is installed or not by typing `java -version` in the terminal window
-   ![[Pasted image 20230503105408.png | 400]]
+   ![java](assets/readme/java.png)
 3. Open the command prompt or terminal
    
-   ![[Pasted image 20230503105515.png | 400]]
+   ![terminal](assets/readme/terminal.png)
 4. Use the "cd" command in the command prompt or terminal to navigate to the directory where the game was downloaded.
    For example, if the game was downloaded to the "Downloads" folder, type `cd Downloads` and press Enter
    
-   ![[Pasted image 20230503105629.png | 400]]
+   ![speedrunner_dir](assets/readme/speedrunner_dir.png)
    
    5. Run the game by typing `java -jar SpeedRunner.jar` in the command prompt or terminal and press enter.
 
