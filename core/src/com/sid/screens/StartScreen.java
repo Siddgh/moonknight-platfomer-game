@@ -51,11 +51,15 @@ public class StartScreen implements Screen {
 
     private TextureAtlas atlas;
     ElementDetection elementDetection;
-    public StartScreen(MainGameClass game) {
+
+    public String username;
+
+    public StartScreen(MainGameClass game, String username) {
 
         atlas = new TextureAtlas("characters/MainPlayer.atlas");
 
         this.game = game;
+        this.username = username;
         gameCamera = new OrthographicCamera();
         gameViewport = new FitViewport(GameConstants.GAME_WIDTH / GameConstants.PIXELS_PER_METER, GameConstants.GAME_HEIGHT / GameConstants.PIXELS_PER_METER, gameCamera);
         gameHUD = new GameHUD(game.batch);
@@ -83,36 +87,35 @@ public class StartScreen implements Screen {
     }
 
     public void update(float deltaTime) {
-        handleKeyboardEvents(deltaTime);
 
         world.step(1 / 60f, 6, 2);
 
         player.update(deltaTime);
 
-        for (Enemy enemy: elementDetection.getSkullEnemyArray()){
+        for (Enemy enemy : elementDetection.getSkullEnemyArray()) {
             enemy.update(deltaTime);
         }
 
+        if (player.body.getPosition().y < 0) {
+            player.struck();
+        }
 
-        gameCamera.position.x = player.body.getPosition().x;
+        gameHUD.update(deltaTime);
+
+        if (player.currState != Player.State.DEAD) {
+            gameCamera.position.x = player.body.getPosition().x;
+        }
 
         gameCamera.update();
         orthogonalTiledMapRenderer.setView(gameCamera);
     }
 
-    private void handleKeyboardEvents(float deltaTime) {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W) || Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
-            player.body.applyLinearImpulse(new Vector2(0, 4.0f), player.body.getWorldCenter(), true);
+    public boolean gameOver() {
+        if (player.currState == Player.State.DEAD && player.getStateTimer() > 1) {
+            return true;
+        } else {
+            return false;
         }
-
-        if ((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyJustPressed(Input.Keys.W)) && (player.body.getLinearVelocity().x <= 1)) {
-            player.body.applyLinearImpulse(new Vector2(1.0f, 0), player.body.getWorldCenter(), true);
-        }
-
-        if ((Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyJustPressed(Input.Keys.A)) && (player.body.getLinearVelocity().x >= -1)) {
-            player.body.applyLinearImpulse(new Vector2(-1.0f, 0), player.body.getWorldCenter(), true);
-        }
-
     }
 
     @Override
@@ -135,7 +138,7 @@ public class StartScreen implements Screen {
 
         game.batch.begin();
         player.draw(game.batch);
-        for (Enemy enemy: elementDetection.getSkullEnemyArray()){
+        for (Enemy enemy : elementDetection.getSkullEnemyArray()) {
             enemy.draw(game.batch);
         }
         game.batch.end();
@@ -143,6 +146,12 @@ public class StartScreen implements Screen {
 
         game.batch.setProjectionMatrix(gameHUD.stage.getCamera().combined);
         gameHUD.stage.draw();
+
+        if (gameOver()) {
+            game.setScreen(new GameOverScreen(game, gameHUD, username));
+            dispose();
+        }
+
     }
 
     @Override

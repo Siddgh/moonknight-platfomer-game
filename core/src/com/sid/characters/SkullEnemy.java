@@ -16,8 +16,8 @@ public class SkullEnemy extends Enemy {
     private float stateTime;
     private Animation<TextureRegion> skullIdle;
 
-    public SkullEnemy(StartScreen screen, float posX, float posY) {
-        super(screen, posX, posY, new Vector2(1, 0));
+    public SkullEnemy(StartScreen screen, float posX, float posY, Vector2 speed) {
+        super(screen, posX, posY, speed);
         stateTime = 0;
         skullIdle = new Animation(0.1f, screen.getAtlas().findRegions("skull"));
         setBounds(getX(), getY(), 48 / GameConstants.PIXELS_PER_METER, 48 / GameConstants.PIXELS_PER_METER);

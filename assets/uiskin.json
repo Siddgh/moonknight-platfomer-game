@@ -1,0 +1,11 @@
+{
+  TextFieldStyle: {
+default: {
+font: font
+fontColor: black
+background: textfield
+cursor: black
+selection: pale-blue
+}
+}
+}

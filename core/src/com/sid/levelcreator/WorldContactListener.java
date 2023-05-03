@@ -3,6 +3,7 @@ package com.sid.levelcreator;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.*;
 import com.sid.characters.Enemy;
+import com.sid.characters.Player;
 import com.sid.constants.CharacterBits;
 import jdk.jpackage.internal.Log;
 
@@ -24,7 +25,11 @@ public class WorldContactListener implements ContactListener {
                 }
                 break;
             case CharacterBits.PLAYER_BIT | CharacterBits.ENEMY_BIT:
-                System.out.println("DIEEEE!!");
+                if (fixtureA.getFilterData().categoryBits == CharacterBits.PLAYER_BIT) {
+                    ((Player) fixtureA.getUserData()).struck();
+                } else {
+                    ((Player) fixtureB.getUserData()).struck();
+                }
                 break;
         }
 

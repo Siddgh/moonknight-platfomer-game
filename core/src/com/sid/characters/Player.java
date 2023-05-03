@@ -1,5 +1,7 @@
 package com.sid.characters;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -11,16 +13,18 @@ import com.sid.constants.GameConstants;
 import com.sid.screens.StartScreen;
 
 public class Player extends Sprite {
-    public enum State {STANDING, RUNNING, JUMPING, ATTACKING, DYING, FALLING}
+    public enum State {STANDING, RUNNING, JUMPING, DEAD, FALLING}
 
     public State currState, previousState;
     public World world;
     public Body body;
 
-    private Animation<TextureRegion> playerRun, playerJump, playerStand, playerAttacking;
+    private Animation<TextureRegion> playerRun, playerJump, playerStand, playerDead;
 
     private float stateTimer;
     private boolean isRunningRight;
+
+    boolean isPlayerDead;
 
     public Player(StartScreen screen) {
         super(screen.getAtlas().findRegion("idle"));
@@ -34,7 +38,7 @@ public class Player extends Sprite {
         playerRun = new Animation(0.1f, screen.getAtlas().findRegions("run"));
         playerJump = new Animation(0.1f, screen.getAtlas().findRegions("highjump"));
         playerStand = new Animation(0.1f, screen.getAtlas().findRegions("idle"));
-        playerAttacking = new Animation(0.1f, screen.getAtlas().findRegions("attack"));
+        playerDead = new Animation(0.1f, screen.getAtlas().findRegions("death"));
 
         createPlayer();
         setBounds(0, 0, 102 / GameConstants.PIXELS_PER_METER, 102 / GameConstants.PIXELS_PER_METER);
@@ -43,6 +47,7 @@ public class Player extends Sprite {
     }
 
     public void update(float deltaTime) {
+        handleKeyboardEvents();
         setPosition(body.getPosition().x - getWidth() / 3, body.getPosition().y - getHeight() / 4);
         setRegion(getFrame(deltaTime));
     }
@@ -54,6 +59,9 @@ public class Player extends Sprite {
         TextureRegion region;
 
         switch (currState) {
+            case DEAD:
+                region = playerDead.getKeyFrame(stateTimer);
+                break;
             case JUMPING:
             case FALLING:
                 region = playerJump.getKeyFrame(stateTimer);
@@ -82,7 +90,9 @@ public class Player extends Sprite {
     }
 
     public State getState() {
-        if (body.getLinearVelocity().y > 0 || (body.getLinearVelocity().y < 0 && previousState == State.JUMPING)) {
+        if (isPlayerDead) {
+            return State.DEAD;
+        } else if (body.getLinearVelocity().y > 0 || (body.getLinearVelocity().y < 0 && previousState == State.JUMPING)) {
             return State.JUMPING;
         } else if (body.getLinearVelocity().y < 0) {
             return State.FALLING;
@@ -108,22 +118,56 @@ public class Player extends Sprite {
 
         fixtureDef.shape = shape;
 
-        body.createFixture(fixtureDef);
+        body.createFixture(fixtureDef).setUserData(this);
 
         EdgeShape leftEdge = new EdgeShape();
         leftEdge.set(new Vector2(-30 / GameConstants.PIXELS_PER_METER, -20 / GameConstants.PIXELS_PER_METER), new Vector2(-30 / GameConstants.PIXELS_PER_METER, 20 / GameConstants.PIXELS_PER_METER));
         fixtureDef.shape = leftEdge;
         fixtureDef.isSensor = true;
 
-        body.createFixture(fixtureDef).setUserData("Left");
+        body.createFixture(fixtureDef).setUserData(this);
 
         EdgeShape rightEdge = new EdgeShape();
         rightEdge.set(new Vector2(30 / GameConstants.PIXELS_PER_METER, -20 / GameConstants.PIXELS_PER_METER), new Vector2(30 / GameConstants.PIXELS_PER_METER, 20 / GameConstants.PIXELS_PER_METER));
         fixtureDef.shape = rightEdge;
         fixtureDef.isSensor = true;
 
-        body.createFixture(fixtureDef).setUserData("Right");
+        body.createFixture(fixtureDef).setUserData(this);
 
+    }
+
+    private void handleKeyboardEvents() {
+        if (currState != State.DEAD) {
+            if (Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W) || Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
+                switch (getState()) {
+                    case STANDING:
+                    case RUNNING:
+                        this.body.applyLinearImpulse(new Vector2(0, 3.5f), this.body.getWorldCenter(), true);
+                        break;
+                }
+            }
+
+            if ((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyJustPressed(Input.Keys.W)) && (this.body.getLinearVelocity().x <= 1)) {
+                this.body.applyLinearImpulse(new Vector2(4.0f, 0), this.body.getWorldCenter(), true);
+            }
+
+            if ((Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyJustPressed(Input.Keys.A)) && (this.body.getLinearVelocity().x >= -1)) {
+                this.body.applyLinearImpulse(new Vector2(-4.0f, 0), this.body.getWorldCenter(), true);
+            }
+        }
+
+    }
+
+    public boolean isPlayerDead() {
+        return isPlayerDead;
+    }
+
+    public float getStateTimer() {
+        return stateTimer;
+    }
+
+    public void struck() {
+        isPlayerDead = true;
     }
 
 

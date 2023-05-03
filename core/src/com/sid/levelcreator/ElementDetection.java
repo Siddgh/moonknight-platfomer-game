@@ -4,6 +4,7 @@ import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.sid.characters.SkullEnemy;
@@ -34,7 +35,7 @@ public class ElementDetection {
         skullEnemyArray = new Array<SkullEnemy>();
         for (MapObject object : startScreen.getLevelMap().getLayers().get(5).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rectangle = ((RectangleMapObject) object).getRectangle();
-            skullEnemyArray.add(new SkullEnemy(startScreen, rectangle.getX() / GameConstants.PIXELS_PER_METER, rectangle.getY() / GameConstants.PIXELS_PER_METER));
+            skullEnemyArray.add(new SkullEnemy(startScreen, rectangle.getX() / GameConstants.PIXELS_PER_METER, rectangle.getY() / GameConstants.PIXELS_PER_METER, new Vector2(0, 0)));
         }
 
     }

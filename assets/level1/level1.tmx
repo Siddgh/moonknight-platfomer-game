@@ -41,7 +41,6 @@
   <object id="10" x="1830.63" y="630.267" width="110.504" height="23.423"/>
  </objectgroup>
  <objectgroup id="8" name="skulls">
-  <object id="14" x="644.132" y="695.522" width="50.0626" height="46.5037" rotation="359.546"/>
   <object id="15" x="1188.36" y="649.938" width="50.0626" height="46.5037" rotation="359.546"/>
   <object id="16" x="1367.74" y="646.83" width="50.0626" height="46.5037" rotation="359.546"/>
  </objectgroup>
