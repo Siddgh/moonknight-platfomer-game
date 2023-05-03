@@ -184,7 +184,7 @@ public class Player extends Sprite {
                 switch (getState()) {
                     case STANDING:
                     case RUNNING:
-                        this.body.applyLinearImpulse(new Vector2(0, 5.5f), this.body.getWorldCenter(), true);
+                        this.body.applyLinearImpulse(new Vector2(0, 3.5f), this.body.getWorldCenter(), true);
                         break;
                 }
             }

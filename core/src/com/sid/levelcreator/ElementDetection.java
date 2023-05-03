@@ -57,7 +57,7 @@ public class ElementDetection {
         demonEnemyArray = new Array<DemonEnemy>();
         for (MapObject object : startScreen.getLevelMap().getLayers().get(7).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rectangle = ((RectangleMapObject) object).getRectangle();
-            demonEnemyArray.add(new DemonEnemy(startScreen, rectangle.getX() / GameConstants.PIXELS_PER_METER, rectangle.getY() / GameConstants.PIXELS_PER_METER, new Vector2(1, 0)));
+            demonEnemyArray.add(new DemonEnemy(startScreen, rectangle.getX() / GameConstants.PIXELS_PER_METER, rectangle.getY() / GameConstants.PIXELS_PER_METER, new Vector2(0, 0)));
         }
 
         for (MapObject object : startScreen.getLevelMap().getLayers().get(8).getObjects().getByType(RectangleMapObject.class)) {

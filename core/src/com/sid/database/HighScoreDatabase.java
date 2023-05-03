@@ -47,7 +47,7 @@ public class HighScoreDatabase {
     public List<HighScoreDataModel> getHighScores() throws SQLException {
         List<HighScoreDataModel> highscores = new ArrayList<>();
 
-        String sql = "SELECT * FROM highscores ORDER BY score DESC LIMIT 5";
+        String sql = "SELECT * FROM highscores ORDER BY score ASC LIMIT 5";
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
 

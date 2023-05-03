@@ -46,7 +46,7 @@ public class GameOverScreen implements Screen {
     public GameOverScreen(final Game game, GameHUD score, final String username, boolean isGameOver) {
         this.game = game;
         this.username = username;
-
+        this.isGameOver = isGameOver;
         // Here, similar to the Welcome Screen, I'm setting up my Viewport and Stage
         viewport = new FitViewport(GameConstants.GAME_WIDTH, GameConstants.GAME_HEIGHT, new OrthographicCamera());
         stage = new Stage(viewport, ((MainGameClass) game).batch);
@@ -129,7 +129,10 @@ public class GameOverScreen implements Screen {
         highScoreDatabase = new HighScoreDatabase();
         try {
             highScoreDatabase.connect();
-            highScoreDatabase.saveHighscore(new HighScoreDataModel(username, (int) score.timer));
+            if (!isGameOver) {
+                System.out.println("OUT BLOCK RUNS");
+                highScoreDatabase.saveHighscore(new HighScoreDataModel(username, (int) score.timer));
+            }
         } catch (Exception e) {
             System.out.println("Failed to Connect to Database");
         }
