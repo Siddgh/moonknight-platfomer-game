@@ -11,38 +11,23 @@ import com.sid.constants.CharacterBits;
 import com.sid.constants.GameConstants;
 import com.sid.screens.StartScreen;
 
-/**
-* This Class is very similar to the Player class
- * This class is responsible for creating Enemies
-* */
-public class SkullEnemy extends Enemy {
-
+public class DemonEnemy extends Enemy {
     private float stateTime;
-    private Animation<TextureRegion> skullIdle;
 
-    public SkullEnemy(StartScreen screen, float posX, float posY, Vector2 speed) {
+    private Animation<TextureRegion> demonIdle;
+
+    public DemonEnemy(StartScreen screen, float posX, float posY, Vector2 speed) {
         super(screen, posX, posY, speed);
         stateTime = 0;
-        // I load the animation for the enemy
-        skullIdle = new Animation(0.1f, screen.getAtlas().findRegions("skull"));
-        setBounds(getX(), getY(), 48 / GameConstants.PIXELS_PER_METER, 48 / GameConstants.PIXELS_PER_METER);
-        setRegion(skullIdle.getKeyFrame(stateTime, true));
-    }
 
-    public void update(float deltaTime) {
-        stateTime += deltaTime;
-
-        // I updated the position of the enemy
-        setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y - getHeight() / 4);
-        setRegion(skullIdle.getKeyFrame(stateTime, true));
-
-        body.setLinearVelocity(speed);
+        demonIdle = new Animation(0.1f, screen.getAtlas().findRegions("demon_attack"));
+        setBounds(getX(), getY(), 240 / GameConstants.PIXELS_PER_METER, 192 / GameConstants.PIXELS_PER_METER);
+        setRegion(demonIdle.getKeyFrame(stateTime, true));
     }
 
     @Override
     protected void createEnemy() {
-
-        // I created a dynamic body for the enemy since
+// I created a dynamic body for the enemy since
         BodyDef bodyDef = new BodyDef();
         bodyDef.position.set(getX(), getY());
         bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -75,5 +60,16 @@ public class SkullEnemy extends Enemy {
         fixtureDef.isSensor = true;
 
         body.createFixture(fixtureDef).setUserData(this);
+    }
+
+    @Override
+    public void update(float deltaTime) {
+        stateTime += deltaTime;
+
+        // I updated the position of the enemy
+        setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y - getHeight() / 5);
+        setRegion(demonIdle.getKeyFrame(stateTime, true));
+
+        body.setLinearVelocity(speed);
     }
 }

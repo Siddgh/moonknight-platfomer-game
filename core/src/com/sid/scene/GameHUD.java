@@ -13,6 +13,9 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.sid.constants.FontConstants;
 import com.sid.constants.GameConstants;
 
+/**
+ * This class is responsbile to draw the survival time over the game at all times while playing the game.
+ */
 public class GameHUD implements Disposable {
     public Stage stage;
     private Viewport viewport;
@@ -21,6 +24,9 @@ public class GameHUD implements Disposable {
     private float timeCount;
     Label timerLabel, timerTitleLabel;
 
+    private boolean shouldUpdateTimer = true;
+
+    // This is very similar to the WelcomeScreen or the GameOverScreens
     public GameHUD(SpriteBatch spriteBatch) {
         timer = 0;
 
@@ -31,7 +37,7 @@ public class GameHUD implements Disposable {
         table.top();
         table.setFillParent(true);
 
-        timerTitleLabel = new Label("Survival Points",
+        timerTitleLabel = new Label("Survival Time",
                 new Label.LabelStyle(FontConstants.getBitmapFontFromFonts(18, FontConstants.REGGAEONE), Color.WHITE));
 
         timerLabel = new Label(String.format("%03d", (int) timer), new Label.LabelStyle(FontConstants.getBitmapFontFromFonts(24, FontConstants.REGGAEONE), Color.WHITE));
@@ -48,13 +54,20 @@ public class GameHUD implements Disposable {
         stage.addActor(table);
     }
 
+    //Here I constantly update the timer for Survival time by 1 millisecond
     public void update(float deltaTime) {
-        timeCount += deltaTime;
-        if (timeCount >= 1) {
-            timer += 1;
-            timerLabel.setText(String.format("%03d", (int) timer));
-            timeCount = 0;
+        if (shouldUpdateTimer) {
+            timeCount += deltaTime;
+            if (timeCount >= 1) {
+                timer += 1;
+                timerLabel.setText(String.format("%03d", (int) timer));
+                timeCount = 0;
+            }
         }
+    }
+
+    public void setShouldUpdateTimer(boolean shouldUpdateTimer) {
+        this.shouldUpdateTimer = shouldUpdateTimer;
     }
 
     @Override

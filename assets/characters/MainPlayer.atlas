@@ -6,371 +6,448 @@ filter: Nearest, Nearest
 repeat: none
 attack
   rotate: false
-  xy: 128, 384
+  xy: 256, 0
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 7
 attack
   rotate: false
-  xy: 256, 0
+  xy: 1568, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 4
 attack
   rotate: false
-  xy: 384, 0
+  xy: 2080, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 9
 attack
   rotate: false
-  xy: 512, 0
+  xy: 2592, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 1
 attack
   rotate: false
-  xy: 896, 384
+  xy: 3360, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 6
 attack
   rotate: false
-  xy: 1024, 384
+  xy: 3872, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 11
 attack
+  rotate: false
+  xy: 1840, 256
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 3
+attack
+  rotate: false
+  xy: 2352, 256
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 8
+attack
+  rotate: false
+  xy: 3504, 256
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 5
+attack
+  rotate: false
+  xy: 1408, 0
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 10
+attack
+  rotate: false
+  xy: 1792, 0
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 2
+death
+  rotate: false
+  xy: 512, 0
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 2
+death
+  rotate: false
+  xy: 1152, 0
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 7
+death
+  rotate: false
+  xy: 2208, 384
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 4
+death
+  rotate: false
+  xy: 2976, 384
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 9
+death
+  rotate: false
+  xy: 3488, 384
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 1
+death
+  rotate: false
+  xy: 1456, 256
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 6
+death
+  rotate: false
+  xy: 2608, 256
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 3
+death
+  rotate: false
+  xy: 3120, 256
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 8
+death
+  rotate: false
+  xy: 1584, 128
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 5
+death
+  rotate: false
+  xy: 1920, 0
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 10
+demon_attack
+  rotate: false
+  xy: 0, 320
+  size: 240, 192
+  orig: 240, 192
+  offset: 0, 0
+  index: 7
+demon_attack
+  rotate: false
+  xy: 0, 128
+  size: 240, 192
+  orig: 240, 192
+  offset: 0, 0
+  index: 4
+demon_attack
+  rotate: false
+  xy: 240, 320
+  size: 240, 192
+  orig: 240, 192
+  offset: 0, 0
+  index: 9
+demon_attack
+  rotate: false
+  xy: 240, 128
+  size: 240, 192
+  orig: 240, 192
+  offset: 0, 0
+  index: 1
+demon_attack
+  rotate: false
+  xy: 480, 320
+  size: 240, 192
+  orig: 240, 192
+  offset: 0, 0
+  index: 6
+demon_attack
+  rotate: false
+  xy: 480, 128
+  size: 240, 192
+  orig: 240, 192
+  offset: 0, 0
+  index: 3
+demon_attack
+  rotate: false
+  xy: 720, 320
+  size: 240, 192
+  orig: 240, 192
+  offset: 0, 0
+  index: 8
+demon_attack
+  rotate: false
+  xy: 720, 128
+  size: 240, 192
+  orig: 240, 192
+  offset: 0, 0
+  index: 0
+demon_attack
+  rotate: false
+  xy: 960, 320
+  size: 240, 192
+  orig: 240, 192
+  offset: 0, 0
+  index: 5
+demon_attack
+  rotate: false
+  xy: 960, 128
+  size: 240, 192
+  orig: 240, 192
+  offset: 0, 0
+  index: 10
+demon_attack
+  rotate: false
+  xy: 1200, 320
+  size: 240, 192
+  orig: 240, 192
+  offset: 0, 0
+  index: 2
+highjump
+  rotate: false
+  xy: 384, 0
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: 11
+highjump
   rotate: false
   xy: 1024, 0
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 3
-attack
-  rotate: false
-  xy: 1152, 0
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 8
-attack
-  rotate: false
-  xy: 1536, 256
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 5
-attack
-  rotate: false
-  xy: 1664, 256
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 10
-attack
-  rotate: false
-  xy: 1920, 384
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 2
-death
-  rotate: false
-  xy: 0, 0
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 2
-death
-  rotate: false
-  xy: 256, 256
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 7
-death
-  rotate: false
-  xy: 512, 256
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 4
-death
-  rotate: false
-  xy: 640, 128
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 9
-death
-  rotate: false
-  xy: 768, 128
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 1
-death
-  rotate: false
-  xy: 1024, 256
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 6
-death
-  rotate: false
-  xy: 1408, 384
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 3
-death
-  rotate: false
-  xy: 1536, 384
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 8
-death
-  rotate: false
-  xy: 1664, 128
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 5
-death
-  rotate: false
-  xy: 1792, 0
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 10
 highjump
   rotate: false
-  xy: 0, 128
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 11
-highjump
-  rotate: false
-  xy: 128, 0
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: 3
-highjump
-  rotate: false
-  xy: 512, 384
+  xy: 1824, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 8
 highjump
   rotate: false
-  xy: 768, 384
+  xy: 2848, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 5
 highjump
   rotate: false
-  xy: 768, 0
+  xy: 3616, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 10
 highjump
   rotate: false
-  xy: 896, 0
+  xy: 1280, 64
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 2
 highjump
   rotate: false
-  xy: 1280, 384
+  xy: 2096, 256
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 7
 highjump
   rotate: false
-  xy: 1280, 256
+  xy: 2480, 256
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 12
 highjump
   rotate: false
-  xy: 1408, 256
+  xy: 2992, 256
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 4
 highjump
   rotate: false
-  xy: 1536, 128
+  xy: 3760, 256
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 9
 highjump
   rotate: false
-  xy: 1792, 384
+  xy: 1536, 0
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 1
 highjump
   rotate: false
-  xy: 1920, 256
+  xy: 1968, 128
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 6
 hurt
   rotate: false
-  xy: 256, 384
+  xy: 768, 0
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 1
 hurt
   rotate: false
-  xy: 512, 128
+  xy: 2464, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 3
 hurt
   rotate: false
-  xy: 1280, 128
+  xy: 2736, 256
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 2
 hurt
   rotate: false
-  xy: 1792, 256
+  xy: 1712, 128
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 4
 idle
   rotate: false
-  xy: 0, 384
+  xy: 0, 0
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 5
 idle
   rotate: false
-  xy: 0, 256
+  xy: 128, 0
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 18
 idle
   rotate: false
-  xy: 128, 256
+  xy: 640, 0
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 10
 idle
   rotate: false
-  xy: 384, 384
+  xy: 1440, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 2
 idle
   rotate: false
-  xy: 256, 128
+  xy: 1200, 192
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 15
 idle
   rotate: false
-  xy: 384, 128
+  xy: 1952, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 7
 idle
   rotate: false
-  xy: 640, 384
+  xy: 2336, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 12
 idle
   rotate: false
-  xy: 640, 0
+  xy: 3104, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 4
 idle
   rotate: false
-  xy: 768, 256
+  xy: 3232, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 17
 idle
   rotate: false
-  xy: 896, 256
+  xy: 3744, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 9
 idle
   rotate: false
-  xy: 1152, 384
+  xy: 1584, 256
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 1
 idle
   rotate: false
-  xy: 1024, 128
+  xy: 1712, 256
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 14
 idle
   rotate: false
-  xy: 1152, 128
+  xy: 2224, 256
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 6
 idle
   rotate: false
-  xy: 1408, 128
+  xy: 3248, 256
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 3
 idle
   rotate: false
-  xy: 1408, 0
+  xy: 3376, 256
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 16
 idle
   rotate: false
-  xy: 1536, 0
+  xy: 1456, 128
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
@@ -384,112 +461,112 @@ idle
   index: 13
 run
   rotate: false
-  xy: 128, 128
+  xy: 896, 0
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 2
 run
   rotate: false
-  xy: 384, 256
+  xy: 1696, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 7
 run
   rotate: false
-  xy: 640, 256
+  xy: 2720, 384
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 4
 run
   rotate: false
-  xy: 896, 128
+  xy: 1328, 192
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 1
 run
   rotate: false
-  xy: 1152, 256
+  xy: 1968, 256
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 6
 run
   rotate: false
-  xy: 1280, 0
+  xy: 2864, 256
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 3
 run
   rotate: false
-  xy: 1664, 384
+  xy: 3632, 256
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 8
 run
   rotate: false
-  xy: 1792, 128
+  xy: 1840, 128
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: 5
 skull
   rotate: false
-  xy: 2048, 400
+  xy: 4000, 400
   size: 96, 112
   orig: 96, 112
   offset: 0, 0
   index: 4
 skull
   rotate: false
-  xy: 1920, 144
+  xy: 4000, 288
   size: 96, 112
   orig: 96, 112
   offset: 0, 0
   index: 1
 skull
   rotate: false
-  xy: 2048, 288
+  xy: 3888, 272
   size: 96, 112
   orig: 96, 112
   offset: 0, 0
   index: 6
 skull
   rotate: false
-  xy: 2144, 400
+  xy: 2096, 144
   size: 96, 112
   orig: 96, 112
   offset: 0, 0
   index: 3
 skull
   rotate: false
-  xy: 1920, 32
+  xy: 2192, 144
   size: 96, 112
   orig: 96, 112
   offset: 0, 0
   index: 8
 skull
   rotate: false
-  xy: 2144, 288
+  xy: 2288, 144
   size: 96, 112
   orig: 96, 112
   offset: 0, 0
   index: 5
 skull
   rotate: false
-  xy: 2240, 400
+  xy: 2384, 144
   size: 96, 112
   orig: 96, 112
   offset: 0, 0
   index: 2
 skull
   rotate: false
-  xy: 2240, 288
+  xy: 2480, 144
   size: 96, 112
   orig: 96, 112
   offset: 0, 0

@@ -1,5 +1,6 @@
 {
-  "message": "GAME OVER!!",
+  "message_fail": "GAME OVER!!",
+  "message_pass": "Thank you for playing!",
   "score": "Survival Time",
   "playAgain": "Play Again",
   "rank": "RANK",

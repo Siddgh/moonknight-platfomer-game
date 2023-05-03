@@ -4,13 +4,22 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * This class takes care of
+ * 1. Connecting to SQLite Database
+ * 2. Creating a HighScore table
+ * 3. Creating methods that would read and write data from the dataed
+ */
 public class HighScoreDatabase {
     private Connection connection;
 
+    // JDBC to SQLite Connection
     public void connect() throws SQLException {
         connection = DriverManager.getConnection("jdbc:sqlite:highscores.db");
         createTableIfNotExists();
     }
+
 
     public void disconnect() throws SQLException {
         connection.close();
@@ -25,6 +34,7 @@ public class HighScoreDatabase {
         statement.execute();
     }
 
+    // This method would save new highscores and username to the SQLite Database
     public void saveHighscore(HighScoreDataModel highscore) throws SQLException {
         String sql = "INSERT INTO highscores (username, score) VALUES (?, ?)";
         PreparedStatement statement = connection.prepareStatement(sql);
@@ -33,10 +43,11 @@ public class HighScoreDatabase {
         statement.executeUpdate();
     }
 
+    // This method will read top 5 high scores with the usernames and return a List<> of all the highscores.
     public List<HighScoreDataModel> getHighScores() throws SQLException {
         List<HighScoreDataModel> highscores = new ArrayList<>();
 
-        String sql = "SELECT * FROM highscores ORDER BY score DESC LIMIT 10";
+        String sql = "SELECT * FROM highscores ORDER BY score DESC LIMIT 5";
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
 
