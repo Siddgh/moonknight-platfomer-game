@@ -43,7 +43,7 @@ Note: If you're using macOS, you can use the command "java -XstartOnFirstThread 
 - He has to avoid obstacles and all the demons that are in between his path
 ![Main Player](assets/readme/rogue.png)
 - Look out for Ghosts and Demons, make sure you don't touch them as you rush through the game. 
-  ![Skull](assets/readme/file-skull.gif) ![dragons](assets/readme/demon-attack.gif)
+  ![Skull](assets/readme/fire-skull.gif) ![dragons](assets/readme/demon-attack.gif)
 
 
 
