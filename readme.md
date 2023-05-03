@@ -41,9 +41,9 @@ Note: If you're using macOS, you can use the command "java -XstartOnFirstThread 
 - In Speed Runner you play a guy named "Speed"
 - Speed lives in a Ghost town and has to reach home as quick as possible.
 - He has to avoid obstacles and all the demons that are in between his path
-![[rogue.png | 250]]
+![Main Player](assets/readme/rogue.png)
 - Look out for Ghosts and Demons, make sure you don't touch them as you rush through the game. 
-  ![[fire-skull.gif | 250]] ![[demon-attack.gif|250]]
+  ![Skull](assets/readme/skulls.png) ![dragons](assets/readme/dragons.png)
 
 
 
@@ -53,31 +53,31 @@ The Game mechanics are simple to master.
 
 - As the main character, you can run both directions and jump
 - You could use either the Arrow keys (Up Arrow is for Jump & Left or Right arrow is to run in either directions)
-  ![[pc-keyboard-arrow-keys-linear-icon-isolated-on-white-background-free-vector.webp|200]]
+  ![Arrow Keys](assets/readme/arrow_keys.webp)
 - If you're more comfortable using the keyboard ASDW keys, go ahead!
   
-  ![[computer-gamer-keyboard-wasd-keys-260nw-1534131284.jpg.webp|250]]
+  ![Keyboard Keys](assets/readme/keyboard_keys.jpg.webp)
   - You can also use `Spacebar` to jump   
 
 
 ## User Interface
 
 #### Game is easy to navigate with a Survival time count running when the player is active
-![[Pasted image 20230503111511.png | 600]]
+![game](assets/readme/game.png)
 
 #### Avoid ghosts on your way towards your goal
-![[Pasted image 20230503111725.png|600]]
+![Skulls](assets/readme/skulls.png)
 
 #### Look out for Fire-breathing dragons
   
-  ![[Pasted image 20230503112014.png|600]]
+  ![dragons](assets/readme/dragons.png)
   
 #### Navigate through difficult obstacles
   
-  ![[Pasted image 20230503112221.png|600]]
+  ![obstacles](assets/readme/obstacles.png)
 
 #### Compete for Highscores
-  ![[Pasted image 20230503112308.png | 600]]
+  ![scores](assets/readme/scores.png)
 
 
 ## Frequently Asked Questions
