@@ -15,11 +15,11 @@ Speed Runner was developed using the Java programming languge and the LibGDX gam
    ![java](assets/readme/java.png)
 3. Open the command prompt or terminal
    
-   ![speedrunner_dir](assets/readme/speedrunner_dir.png)
+   ![terminal](assets/readme/terminal.png)
 4. Use the "cd" command in the command prompt or terminal to navigate to the directory where the game was downloaded.
    For example, if the game was downloaded to the "Downloads" folder, type `cd Downloads` and press Enter
    
-   ![[Pasted image 20230503105629.png | 400]]
+   ![speedrunner_dir](assets/readme/speedrunner_dir.png)
    
    5. Run the game by typing `java -jar SpeedRunner.jar` in the command prompt or terminal and press enter.
 
