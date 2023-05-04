@@ -18,7 +18,7 @@ allprojects {
 
     version = '1.0'
     ext {
-        appName = "Platformer"
+        appName = "Speed Runner"
         gdxVersion = '1.11.0'
         roboVMVersion = '2.3.19'
         box2DLightsVersion = '1.5'

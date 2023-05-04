@@ -101,7 +101,7 @@ public class WelcomeScreen implements Screen {
         textFieldStyle.fontColor = Color.WHITE;
         return textFieldStyle;
     }
-
+ 
     @Override
     public void show() {
 
