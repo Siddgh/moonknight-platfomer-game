@@ -1,3 +1,7 @@
+## Game Preview
+
+https://user-images.githubusercontent.com/13947675/236371291-214a25ad-a2b4-4bf3-a902-1741ac6974b8.mp4
+
 ## Introduction
 
 - Welcome to "Speed Runner", a fast-paced 2D platformer where your goal is to complete the level as quickly as possible without dying.
